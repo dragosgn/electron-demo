@@ -43,10 +43,15 @@ function createAddWindow() {
 			slashes: true
 		})
 	)
+
+	addWindow.on('close', function() {
+		addWindow = null
+	})
 }
 
 // Create menu template
 const mainMenuTemplate = [
+	{},
 	{
 		label: 'File',
 		submenu: [
