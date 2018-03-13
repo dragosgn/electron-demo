@@ -28,7 +28,7 @@ app.on('ready', function() {
 	Menu.setApplicationMenu(mainMenu)
 })
 
-// Handle add window
+// Handle add windows
 function createAddWindow() {
 	addWindow = new BrowserWindow({
 		width: 300,
@@ -90,6 +90,9 @@ if (process.env.NODE_ENV !== 'production') {
 				click(item, focusedWindow) {
 					focusedWindow.toggleDevTools()
 				}
+			},
+			{
+				role: 'reload'
 			}
 		]
 	})
