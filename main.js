@@ -5,7 +5,7 @@ const path = require('path')
 const { app, BrowserWindow, Menu } = electron
 
 let mainWindow
-let addWidnow
+let addWindow
 
 // Listen for app to be ready
 app.on('ready', function() {
@@ -26,11 +26,15 @@ app.on('ready', function() {
 
 // Handle add window
 function createAddWindow() {
-	mainWindow = new BrowserWindow({})
+	addWindow = new BrowserWindow({
+		width: 200,
+		height: 300,
+		title: 'Add Hopping list item'
+	})
 	// Load html file into window
-	mainWindow.loadURL(
+	addWindow.loadURL(
 		url.format({
-			pathname: path.join(__dirname, 'mainWindow.html'),
+			pathname: path.join(__dirname, 'addWindow.html'),
 			protocol: 'file:',
 			slashes: true
 		})
