@@ -19,6 +19,10 @@ app.on('ready', function() {
 			slashes: true
 		})
 	)
+	// Quit app when closed
+	mainWindow.on('closed', function() {
+		app.quit() // close big app when closing big window
+	})
 	// Build menu from template
 	const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
 	Menu.setApplicationMenu(mainMenu)
@@ -27,8 +31,8 @@ app.on('ready', function() {
 // Handle add window
 function createAddWindow() {
 	addWindow = new BrowserWindow({
-		width: 200,
-		height: 300,
+		width: 300,
+		height: 200,
 		title: 'Add Hopping list item'
 	})
 	// Load html file into window
