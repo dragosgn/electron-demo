@@ -9,10 +9,11 @@
 <body>
     <nav>
         <div class="nav-wrapper">
-
+            <a class="brand-logo center">Shopping List</a>
         </div>
     </nav>
     <ul>
+
     </ul>
     <script>
         const electron = require( 'electron' )
@@ -24,9 +25,11 @@
 
         // Catch add item
         ipcRenderer.on( 'item:add', function ( e, item ) {
+            ul.className = "collection"
             const li = document.createElement( 'li' )
             const itemText = document.createTextNode( item )
             li.appendChild( itemText )
+            li.className = "collection-item"
             ul.appendChild( li )
         } )
 
@@ -40,6 +43,9 @@
 
         function removeItem( e ) {
             e.target.remove()
+            if ( ul.children.length == 0 ) {
+                ul.className = ''
+            }
         }
     </script>
 </body>

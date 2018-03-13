@@ -8,13 +8,13 @@
     "start": "electron ."
   },
   "author": "",
+  "license": "MIT",
   "prettier": {
     "tabWidth": 2,
     "parser": "flow",
     "semi": false,
     "useTabs": true
   },
-  "license": "MIT",
   "dependencies": {
     "electron": "^1.8.3",
     "prettier": "^1.11.1"
