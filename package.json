@@ -9,7 +9,6 @@
   },
   "author": "",
   "prettier": {
-    "printWidth": 100,
     "tabWidth": 2,
     "parser": "flow",
     "semi": false,
