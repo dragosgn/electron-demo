@@ -51,7 +51,6 @@ function createAddWindow() {
 
 // Create menu template
 const mainMenuTemplate = [
-	{},
 	{
 		label: 'File',
 		submenu: [
@@ -74,3 +73,8 @@ const mainMenuTemplate = [
 		]
 	}
 ]
+
+// if mac, add empty object o menu
+if (process.platform === 'darwin') {
+	mainMenuTemplate.unshift({}) // array method that adds to the beggining of the array
+}
