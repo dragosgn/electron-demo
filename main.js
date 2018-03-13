@@ -65,7 +65,7 @@ const mainMenuTemplate = [
 			},
 			{
 				label: 'Quit',
-				accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+!',
+				accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',
 				click() {
 					app.quit()
 				}
@@ -77,4 +77,20 @@ const mainMenuTemplate = [
 // if mac, add empty object o menu
 if (process.platform === 'darwin') {
 	mainMenuTemplate.unshift({}) // array method that adds to the beggining of the array
+}
+
+// Add dev tools item if not in production
+if (process.env.NODE_ENV !== 'production') {
+	mainMenuTemplate.push({
+		label: 'Developer Tools',
+		submenu: [
+			{
+				label: 'Toogle DevTools',
+				accelerator: process.platform == 'darwin' ? 'Command+I' : 'Ctrl+I',
+				click(item, focusedWindow) {
+					focusedWindow.toggleDevTools()
+				}
+			}
+		]
+	})
 }
